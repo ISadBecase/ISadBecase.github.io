@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页面</title>
+    <link rel="icon" href="shenli.jpg" type="image/jpg">
+    <style>
+        .flex {
+            display: flex; 
+        }
+        .baise {
+            background-color: rgb(0, 255, 255, 0.3); 
+        }
+        .nav {
+            flex: 2; 
+            margin: 0; 
+            overflow-y: auto;
+            height: calc(100vh - 50px - 30px);
+        }
+
+        .item {
+            height: 30px; 
+            padding: 1px; 
+            margin: 3px;
+
+        }
+        .column{
+            flex-direction: column;
+        }
+        .flex1{
+            flex:1;
+        }
+        .mulu{
+            position: -webkit-sticky; 
+            position: sticky;  
+            top: 80px;  
+        }
+        .nav-header {
+            width:180px;
+            height: 24px;
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22272e;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            background-color: #22272e;
+            font-size: small;
+            padding: 0px;
+            margin:0px;
+        }
+
+        .search-button {
+            background-color: #4CAF50;
+            color:#adbac7;
+            border: none; 
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+
+        .dropdown-icon {
+            display: inline-block; 
+            transition: transform 0.3s;
+        }
+
+        .dropdown-icon.rotate {
+            transform: rotate(90deg);
+        }
+
+
+
+
+
+
+
+        body {
+            margin: 0;
+            display: flex; 
+            flex-direction: column;
+            color:#adbac7;
+            background-color:#22272e;
+        }
+
+        .top{
+            display:block;
+            height:30px;
+            padding-left: 70%;
+            margin:0px;
+            text-align: center;
+            background-color: #1d2126;
+        }
+
+        #hello {
+            position: sticky;  /* 将位置设置为 sticky */
+            top: 0;  /* 距离视口顶部的距离 */
+            margin:0px;
+            height: 50px;
+            padding-top: 10px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+            background-color:#22272ecc;
+            backdrop-filter:blur(8px);
+            z-index:5;
+        }
+
+        .second-top-left{
+            display:flex;
+            align-items:flex-end;
+            margin-right:800px;
+        }
+        .second-top-right{
+            flex:1;
+            display:flex;
+            align-items: center;
+            flex-direction: row;
+            margin-right: 10px;
+        
+        }
+        .shenli-image{
+            height:50px;
+            margin-left: 30px;
+        }
+
+        .santiao-image{
+            height:30px;
+            margin-left: 30px;
+        }
+
+        .search-container {
+            margin-right: 20px;
+            padding:0px; 
+            width: 180px;
+            height:35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 2px; 
+            background-color: #1d2126;
+        }
+
+        .search-input {
+            width:100px;
+            border: none;
+            outline: none;
+            padding-left: 10px;
+            font-size: x-small;
+            background-color: #1d2126;
+            color:#ffffff;
+            caret-color: #ffffff;
+        }
+        
+        .search-image{
+            height:25px;margin-right:10px;
+        }
+        
+
+        .standby-guide{
+            flex: 2;
+            margin: 0px;
+            padding:0px;
+            min-width: 300px;
+        }
+
+        @media (max-width:500px){
+            .shenli-image{
+                display:none;
+            }
+            .standby-guide{
+                display:none;
+            }
+
+        }
+        @media (max-width:900px)
+        {
+            .search-container{
+                display:none;
+            }
+            .search-input{
+                display:none;
+            }
+        }
+        @media (max-width:1200px){
+            .top{
+                display:none;
+            }
+            .second-top-left{
+                margin-right:0px ;
+            }
+            .second-top-right{
+                flex:0;
+            }
+        }
+
+        @media (min-width:900px){
+            .search-image{
+                display:none;
+            }
+        }
+
+        @media (min-width:500px){
+            .santiao-image{
+                display:none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部第一栏 -->
+    <p class="top">注：试验性网站</p>
+    <!-- 顶部第二栏 -->
+    <div id="hello">
+        <!-- 左侧图像区域 -->
+        <div class="second-top-left">
+            <img src="shenli.jpg" alt="shenli" class="shenli-image">
+            <img src="santiao.png" alt="santiao" class="santiao-image">
+            <p style="margin:0;padding-left: 20px;font-size:x-large;">An</p>
+        </div>
+        <!-- 右侧快速导航 -->
+        <div class="second-top-right">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="搜索...">
+                <img src="search.png" alt="search" style="height:25px;margin-right:10px;">
+            </div>
+            <img src="search.png" alt="search" class="search-image">
+            <div style="display: flex; flex-direction: row;align-items: flex-end;">
+                <img src="github.png" alt="github" style="width: 30px;" >
+                <p style="margin: 0px;padding-left: 5px;font-size: xx-small;"> anfirework</p>
+            </div>
+        </div>
+    </div>
+    <!-- 正文栏 -->
+    <div style="flex:1;display:flex;">
+        <!-- 侧边导航栏 -->
+        <div class="standby-guide">
+            <div style="margin-top:30px; padding-left:30px;height: 200px;display: flex; flex-direction: column;overflow-y: auto;scrollbar-width: none;" class="mulu">
+            
+                <div style="margin-bottom: 2px;">
+                    <div class="nav-header">
+                        <p style="margin: 0px;">欢迎</p>
+                    </div>
+                </div>
+    
+                <div  style="margin-bottom: 2px;">
+                    <div class="nav-header">
+                        <p style="margin: 0px;">导航1</p>
+                        <img src="sign2.png" alt=">" style="height:70%; cursor:pointer" class="dropdown-icon">
+                    </div>
+                    <div class="dropdown-content">
+                        <p>下拉菜单项 1</p>
+                        <p>下拉菜单项 2</p>
+                    </div>
+                </div>
+
+                <div  style="margin-bottom: 2px;">
+                    <div class="nav-header">
+                        <p style="margin: 0px;">导航2</p>
+                        <img src="sign2.png" alt=">" style="height:70%; cursor:pointer" class="dropdown-icon">
+                    </div>
+                    <div class="dropdown-content">
+                        <p>下拉菜单项 1</p>
+                        <p>下拉菜单项 2</p>
+                    </div>
+                </div>
+
+                <div  style="margin-bottom: 2px;">
+                    <div class="nav-header">
+                        <p style="margin: 0px;">导航3</p>
+                        <img src="sign2.png" alt=">" style="height:70%; cursor:pointer" class="dropdown-icon">
+                    </div>
+                    <div class="dropdown-content">
+                        <p>下拉菜单项 1</p>
+                        <p>下拉菜单项 2</p>
+                    </div>
+                </div>
+
+                <div  style="margin-bottom: 2px;">
+                    <div class="nav-header">
+                        <p style="margin: 0px;">导航3</p>
+                        <img src="sign2.png" alt=">" style="height:70%; cursor:pointer" class="dropdown-icon">
+                    </div>
+                    <div class="dropdown-content">
+                        <p>下拉菜单项 1</p>
+                        <p>下拉菜单项 2</p>
+                    </div>
+                </div>
+
+                <div  style="margin-bottom: 2px;">
+                    <div class="nav-header">
+                        <p style="margin: 0px;">导航3</p>
+                        <img src="sign2.png" alt=">" style="height:70%; cursor:pointer" class="dropdown-icon">
+                    </div>
+                    <div class="dropdown-content">
+                        <p>下拉菜单项 1</p>
+                        <p>下拉菜单项 2</p>
+                    </div>
+                </div>
+
+                <div  style="margin-bottom: 2px;">
+                    <div class="nav-header">
+                        <p style="margin: 0px;">导航3</p>
+                        <img src="sign2.png" alt=">" style="height:70%; cursor:pointer" class="dropdown-icon">
+                    </div>
+                    <div class="dropdown-content">
+                        <p>下拉菜单项 1</p>
+                        <p>下拉菜单项 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 文章内容栏 -->
+        <div style="flex: 6;min-width:200px;padding-left:30px;padding-top: 16px;height:3000px;">
+            <p>hello</p>
+        </div>
+
+        <div style="flex: 2;"></div>
+
+    </div>
+</body>
+
+<script>
+
+
+const dropdownIcons = document.querySelectorAll('.dropdown-icon');
+
+dropdownIcons.forEach((icon) => {
+    icon.addEventListener('click', function() {
+        const dropdownContent = this.parentElement.nextElementSibling;
+        const isVisible = dropdownContent.style.display === 'block';
+        
+        document.querySelectorAll('.dropdown-content').forEach(content => {
+            content.style.display = 'none';
+            content.previousElementSibling.querySelector('.dropdown-icon').classList.remove('rotate');
+        });
+
+        dropdownContent.style.display = isVisible ? 'none' : 'block';
+        this.classList.toggle('rotate', !isVisible);
+    });
+});
+</script>
+
+</html>

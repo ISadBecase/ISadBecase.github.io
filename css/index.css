@@ -137,6 +137,7 @@ body {
 
 .dropdown-icon.rotate {
     transform: rotate(90deg);
+<<<<<<< HEAD
 }
 
 .neirong{
@@ -145,4 +146,6 @@ body {
     padding-left:30px;
     padding-top: 16px;
     height:3000px;
+=======
+>>>>>>> a41a27e7e12cab7080fa06415a576a1a495cd651
 }

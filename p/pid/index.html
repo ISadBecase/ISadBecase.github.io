@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="PID简单总结与记录">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script><meta name='description' content="PID简单总结与记录">
 <title>PID</title>
 
-<link rel='canonical' href='http://localhost:1313/p/pid/'>
+<link rel='canonical' href='https://example.com/p/pid/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="PID">
 <meta property='og:description' content="PID简单总结与记录">
-<meta property='og:url' content='http://localhost:1313/p/pid/'>
+<meta property='og:url' content='https://example.com/p/pid/'>
 <meta property='og:site_name' content='An'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='PID' /><meta property='article:tag' content='code' /><meta property='article:published_time' content='2025-04-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-04-22T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/markdown-syntax-guide/shneli.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='PID' /><meta property='article:tag' content='code' /><meta property='article:published_time' content='2025-04-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-04-22T00:00:00&#43;00:00'/><meta property='og:image' content='https://example.com/p/pid/shneli.jpg' />
 <meta name="twitter:title" content="PID">
 <meta name="twitter:description" content="PID简单总结与记录"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='http://localhost:1313/p/markdown-syntax-guide/shneli.jpg' />
+    <meta name="twitter:image" content='https://example.com/p/pid/shneli.jpg' />
     </head>
     <body class="
     article-page
@@ -254,64 +258,41 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#headings">Headings</a></li>
-  </ol>
-
-  <ol>
-    <li><a href="#h2">H2</a>
+    <li><a href="#经典pid">经典PID：</a>
       <ol>
-        <li><a href="#h3">H3</a>
+        <li><a href="#连续型pid">连续型PID</a></li>
+        <li><a href="#离散型pid">离散型PID</a>
           <ol>
-            <li><a href="#h4">H4</a></li>
+            <li><a href="#位置式">位置式</a></li>
+            <li><a href="#增量式">增量式</a></li>
           </ol>
         </li>
       </ol>
     </li>
-    <li><a href="#paragraph">Paragraph</a></li>
-    <li><a href="#blockquotes">Blockquotes</a>
+    <li><a href="#改进式pid">改进式PID</a>
       <ol>
-        <li>
+        <li><a href="#不完全微分pid">不完全微分PID</a>
           <ol>
-            <li><a href="#blockquote-without-attribution">Blockquote without attribution</a></li>
-            <li><a href="#blockquote-with-attribution">Blockquote with attribution</a></li>
+            <li><a href="#微分项不完全微分pid">微分项不完全微分PID</a></li>
+            <li><a href="#输出不完全微分pid">输出不完全微分PID：</a></li>
+          </ol>
+        </li>
+        <li><a href="#微分先行pid">微分先行PID：</a>
+          <ol>
+            <li><a href="#输出微分先行pid">输出微分先行PID：</a></li>
+            <li><a href="#偏差微分先行pid">偏差微分先行PID：</a></li>
+          </ol>
+        </li>
+        <li><a href="#变积分pid">变积分PID：</a>
+          <ol>
+            <li><a href="#死区">死区：</a></li>
+            <li><a href="#电机死区">电机死区：</a></li>
+            <li><a href="#积分分离">积分分离：</a></li>
           </ol>
         </li>
       </ol>
     </li>
-    <li><a href="#tables">Tables</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#inline-markdown-within-tables">Inline Markdown within tables</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#code-blocks">Code Blocks</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#code-block-with-backticks">Code block with backticks</a></li>
-            <li><a href="#code-block-indented-with-four-spaces">Code block indented with four spaces</a></li>
-            <li><a href="#code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&rsquo;s internal highlight shortcode</a></li>
-            <li><a href="#diff-code-block">Diff code block</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#list-types">List Types</a>
-      <ol>
-        <li>
-          <ol>
-            <li><a href="#ordered-list">Ordered List</a></li>
-            <li><a href="#unordered-list">Unordered List</a></li>
-            <li><a href="#nested-list">Nested list</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#other-elements--abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark</a></li>
-    <li><a href="#hyperlinked-image">Hyperlinked image</a></li>
+    <li><a href="#模糊pid">模糊PID</a></li>
   </ol>
 </nav>
         </div>
@@ -327,8 +308,8 @@
     <header class="article-header">
         <div class="article-image">
             <a href="/p/pid/">
-                <img src="/p/markdown-syntax-guide/shneli_hu_5aa0e593120cedb6.jpg"
-                        srcset="/p/markdown-syntax-guide/shneli_hu_5aa0e593120cedb6.jpg 800w, /p/markdown-syntax-guide/shneli_hu_c0c9ac15da5d14e0.jpg 1600w"
+                <img src="/p/pid/shneli_hu_5aa0e593120cedb6.jpg"
+                        srcset="/p/pid/shneli_hu_5aa0e593120cedb6.jpg 800w, /p/pid/shneli_hu_c0c9ac15da5d14e0.jpg 1600w"
                         width="800" 
                         height="448" 
                         loading="lazy"
@@ -397,90 +378,41 @@
     <section class="article-content">
     
     
-    <p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>
-<h2 id="headings">Headings
-</h2><p>The following HTML <code>&lt;h1&gt;</code>—<code>&lt;h6&gt;</code> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level while <code>&lt;h6&gt;</code> is the lowest.</p>
-<h1 id="h1">H1
-</h1><h2 id="h2">H2
-</h2><h3 id="h3">H3
-</h3><h4 id="h4">H4
-</h4><h5 id="h5">H5
-</h5><h6 id="h6">H6
-</h6><h2 id="paragraph">Paragraph
-</h2><p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.</p>
-<p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.</p>
-<h2 id="blockquotes">Blockquotes
-</h2><p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally with in-line changes such as annotations and abbreviations.</p>
-<h4 id="blockquote-without-attribution">Blockquote without attribution
-</h4><blockquote>
-<p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-<strong>Note</strong> that you can use <em>Markdown syntax</em> within a blockquote.</p></blockquote>
-<h4 id="blockquote-with-attribution">Blockquote with attribution
-</h4><blockquote>
-<p>Don&rsquo;t communicate by sharing memory, share memory by communicating.<br>
-— <cite>Rob Pike<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></cite></p></blockquote>
-<h2 id="tables">Tables
-</h2><p>Tables aren&rsquo;t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>Name</th>
-          <th>Age</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Bob</td>
-          <td>27</td>
-      </tr>
-      <tr>
-          <td>Alice</td>
-          <td>23</td>
-      </tr>
-  </tbody>
-</table></div>
-<h4 id="inline-markdown-within-tables">Inline Markdown within tables
-</h4><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>Italics</th>
-          <th>Bold</th>
-          <th>Code</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><em>italics</em></td>
-          <td><strong>bold</strong></td>
-          <td><code>code</code></td>
-      </tr>
-  </tbody>
-</table></div>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>A</th>
-          <th>B</th>
-          <th>C</th>
-          <th>D</th>
-          <th>E</th>
-          <th>F</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-          <td>Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.</td>
-          <td>Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus</td>
-          <td>Proin sit amet velit nec enim imperdiet vehicula.</td>
-          <td>Ut bibendum vestibulum quam, eu egestas turpis gravida nec</td>
-          <td>Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien</td>
-      </tr>
-  </tbody>
-</table></div>
-<h2 id="code-blocks">Code Blocks
-</h2><h4 id="code-block-with-backticks">Code block with backticks
-</h4><div class="highlight"><div class="chroma">
+    <h2 id="经典pid">经典PID：
+</h2><p>比例、积分、微分控制，简称PID控制，又称PID调节。PID控制的基本方法是根据系统输入与预定输出的偏差的大小运用比例、积分、微分计算出一个控制量，将这个控制量输入系统，获得输出量，通过反馈回路再次检测该输出量的偏差，循环上述过程，以使输出达到预定值。使用情况：当被控对象的结构和参数不能完全掌握，或得不到精确的数学模型时</p>
+<h3 id="连续型pid">连续型PID
+</h3>$$
+u(t) = K_p \left[ e(t) + \frac{1}{T_i} \int_0^t e(t) \, dt + T_d \frac{d e(t)}{dt} \right]
+$$<h3 id="离散型pid">离散型PID
+</h3><h4 id="位置式">位置式
+</h4>$$
+\begin{aligned}
+\boldsymbol{u}(\boldsymbol{k}) 
+&= \boldsymbol{K}_{p} \left\{ 
+\boldsymbol{e}(\boldsymbol{k}) + \frac{\boldsymbol{T}}{\boldsymbol{T}_{i}} \sum_{j=1}^{k} \boldsymbol{e}(\boldsymbol{j}) + \frac{\boldsymbol{T}_{d}}{\boldsymbol{T}} \left[\boldsymbol{e}(\boldsymbol{k}) - \boldsymbol{e}(\boldsymbol{k}-1)\right] 
+\right\} \\
+&= \boldsymbol{K}_{p} \boldsymbol{e}(\boldsymbol{k}) + \boldsymbol{K}_{i} \sum_{j=1}^{k} \boldsymbol{e}(\boldsymbol{j}) + \boldsymbol{K}_{d} \left[\boldsymbol{e}(\boldsymbol{k}) - \boldsymbol{e}(\boldsymbol{k}-1)\right]
+\end{aligned}
+$$<h4 id="增量式">增量式
+</h4>$$
+\begin{aligned}
+\boldsymbol{u}(\boldsymbol{k}) 
+&= \boldsymbol{K}_{p} \left\{ 
+\boldsymbol{e}(\boldsymbol{k}) + \frac{\boldsymbol{T}}{\boldsymbol{T}_{i}} \sum_{j=1}^{k} \boldsymbol{e}(\boldsymbol{j}) + \frac{\boldsymbol{T}_{d}}{\boldsymbol{T}} \left[\boldsymbol{e}(\boldsymbol{k}) - \boldsymbol{e}(\boldsymbol{k}-1)\right] 
+\right\}
+\end{aligned}
+$$$$
+\begin{aligned}
+\boldsymbol{u}(\boldsymbol{k-1}) 
+&= \boldsymbol{K}_{p} \boldsymbol{e}(\boldsymbol{k-1}) + \boldsymbol{K}_{i} \sum_{j=1}^{k-1} \boldsymbol{e}(\boldsymbol{j}) + \boldsymbol{K}_{d} \left[\boldsymbol{e}(\boldsymbol{k-1}) - \boldsymbol{e}(\boldsymbol{k-2})\right]
+\end{aligned}
+$$$$
+\begin{aligned}
+\Delta u(k) = u(k) - u(k-1) 
+&= K_p \left[ e(k) - e(k-1) \right] + K_i e(k) + K_d \left[ e(k) - 2e(k-1) + e(k-2) \right]
+\end{aligned}
+$$<p>代码：</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -492,61 +424,129 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Example HTML5 Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Test<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">float RealizePID(PIDTypeDef_t *pid, float get, float set) {
+</span></span><span class="line"><span class="cl">    pid-&gt;nowVal = get;
+</span></span><span class="line"><span class="cl">    pid-&gt;exVal = set;
+</span></span><span class="line"><span class="cl">    pid-&gt;errNow = pid-&gt;exVal - pid-&gt;nowVal;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    pid-&gt;outPutP = pid-&gt;Kp * pid-&gt;errNow;
+</span></span><span class="line"><span class="cl">    pid-&gt;outPutI += pid-&gt;Ki * pid-&gt;errNow;
+</span></span><span class="line"><span class="cl">    pid-&gt;outPutD = pid-&gt;Kd * (pid-&gt;errNow - pid-&gt;errLast);
+</span></span><span class="line"><span class="cl">    pid-&gt;outPut = pid-&gt;outPutP + pid-&gt;outPutI + pid-&gt;outPutD;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    pid-&gt;errLast = pid-&gt;errNow;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    return pid-&gt;outPut;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">float IncrementalPID(PIDTypeDef_t *pid, float get, float set) {
+</span></span><span class="line"><span class="cl">    pid-&gt;nowVal = get;
+</span></span><span class="line"><span class="cl">    pid-&gt;exVal = set;
+</span></span><span class="line"><span class="cl">    pid-&gt;errNow = pid-&gt;exVal - pid-&gt;nowVal;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    pid-&gt;outPutP = pid-&gt;Kp * (pid-&gt;errNow - pid-&gt;errLast);
+</span></span><span class="line"><span class="cl">    pid-&gt;outPutI = pid-&gt;Ki * pid-&gt;errNow;
+</span></span><span class="line"><span class="cl">    pid-&gt;outPutD = pid-&gt;Kd * (pid-&gt;errNow - 2.000f * pid-&gt;errLast + pid-&gt;errLastLast);
+</span></span><span class="line"><span class="cl">    pid-&gt;outPut += pid-&gt;outPutP + pid-&gt;outPutI + pid-&gt;outPutD;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    pid-&gt;errLast = pid-&gt;errNow;
+</span></span><span class="line"><span class="cl">    pid-&gt;errLastLast = pid-&gt;errLast;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    return pid-&gt;outPut;
+</span></span><span class="line"><span class="cl">}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="code-block-indented-with-four-spaces">Code block indented with four spaces
-</h4><pre><code>&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;title&gt;Example HTML5 Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;p&gt;Test&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h4 id="code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&rsquo;s internal highlight shortcode
-</h4><div class="highlight"><div class="chroma">
+</div><ul>
+<li>
+<p>采样周期和控制周期T没有在以上公式中体现，周期的变化会影响系数</p>
+</li>
+<li>
+<p>在PID算法中，比例环节 P 的作用是成比例地反映控制系统的偏差信号e(t)，一旦产生偏差，比例控制环节立即产生控制作用以减小偏差；积分环节 I 的作用是消除静差，提高系统的无差度。微分环节 D 的作用是反映偏差信号的变化趋势，能够在偏差信号变化之前先引入一个有效的早期修正信号来提前修正偏差，加快系统的动作速度，减少调节时间。</p>
+</li>
+<li>
+<p>所谓增量式PID 是指数字控制器的输出只是控制量的增量△u(k)。增量式PID优点在于，由于输出的是增量所以误动作时影响小，必要时可用逻辑判断的方法关掉。另外由于控制增量△u(k)的确定仅与最近k次的采样值有关，所以较容易通过加权处理而获得比较好的控制效果。</p>
+</li>
+<li>
+<p>在PID参数的选择上，常见的是过程控制系统（如电机控制）因较慢的响应常采用PI控制，突出积分项的作用，而随动控制系统（如舵机控制）为了达到较快的响应常采用PD控制。</p>
+</li>
+<li>
+<p>大多智能车队会推荐速度环使用增量式PID，方向环使用位置式PID，这是由于增量PID由于也不容易造成电机的正反转切换。但其实在合适的参数下，增量式PID与位置式PID应该是可以等价。</p>
+</li>
+</ul>
+<h2 id="改进式pid">改进式PID
+</h2><h3 id="不完全微分pid">不完全微分PID
+</h3><p>微分信号的引入可改善系统的动态特性，但也易引进高频干扰，在误差扰动突变时尤其明显。因而使用微分项常常采用串接一个一阶惯性环节（一阶低通滤波器）的方式，以克服高频干扰，抗微分扰动。</p>
+<h4 id="微分项不完全微分pid">微分项不完全微分PID
+</h4><p>将一低通滤波环节串接在微分项的输出之后</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Example HTML5 Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Test<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pid-&gt;outputD = pid-&gt;Kd * (pid-&gt;errNow- pid-&gt;errLast) * lpf1Factor_d + pid-&gt;OutputDD * (1.000f - lpf1Factor_d);
+</span></span></code></pre></td></tr></table>
 </div>
+</div><h4 id="输出不完全微分pid">输出不完全微分PID：
+</h4><p>将一低通滤波环节串接在PID控制器的输出后</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pid-&gt;outPut = pid-&gt;outPut * lpf1Factor_out  + pid-&gt;outPutLast * (1.000f - lpf1Factor_out);
+</span></span></code></pre></td></tr></table>
 </div>
-<h4 id="diff-code-block">Diff code block
-</h4><div class="highlight"><div class="chroma">
+</div><h3 id="微分先行pid">微分先行PID：
+</h3><h4 id="输出微分先行pid">输出微分先行PID：
+</h4><p>将低通滤波串联在反馈环节（如编码器环节）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pid-&gt;nowVal = get * lpf1Factor_val + pid-&gt;lastVal * (1.000f - lpf1Factor_val);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="偏差微分先行pid">偏差微分先行PID：
+</h4><p>将低通滤波串联在偏差环节</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pid-&gt;errNow = (pid-&gt;exVal - pid-&gt;nowVal) * lpf1Factor_err + pid-&gt;errLast * (1.000f - lpf1Factor_err);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="变积分pid">变积分PID：
+</h3><h4 id="死区">死区：
+</h4><p>死区即实际工程中可容忍的最大误差。实际应用中，小误差产生的原因很大可能是由于测量误差或其它不可避免因素造成而不是实际误差。在较小的偏差下弱调节或不调节，可以让控制避免抖动更加平滑。</p>
+<h4 id="电机死区">电机死区：
+</h4><h4 id="积分分离">积分分离：
+</h4><p>在普通PID控制中引入积分环节主要是为了消除净差和提高控制精度。但在控制系统启动或停车或大幅度增减目标值时，由于积分饱和作用，短时间内会造成系统有特别大的偏差，会造成PID运算的积分积累，致使输出量特别大，很容易导致超调，甚至会引起系统较大的震荡。</p>
+<p>当误差绝对值大于阈值时取消积分项避免过量超调，在大误差范围内减小积分项作用。当被控量接近目标值时（即误差正常时），引入积分控制，以消除净差，提高控制精度。</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -555,69 +555,16 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl">[dependencies.bevy]
-</span></span><span class="line"><span class="cl">git = &#34;https://github.com/bevyengine/bevy&#34;
-</span></span><span class="line"><span class="cl">rev = &#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&#34;
-</span></span><span class="line"><span class="cl"><span class="gd">- features = [&#34;dynamic&#34;]
-</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+ features = [&#34;jpeg&#34;, &#34;dynamic&#34;]
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">if (pid-&gt;errABS &lt; I_Band) {
+</span></span><span class="line"><span class="cl">    pid-&gt;outPutI = pid-&gt;ki * pid-&gt;errSum;
+</span></span><span class="line"><span class="cl">} else {
+</span></span><span class="line"><span class="cl">    pid-&gt;outPutI = 0.000f;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="list-types">List Types
-</h2><h4 id="ordered-list">Ordered List
-</h4><ol>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-</ol>
-<h4 id="unordered-list">Unordered List
-</h4><ul>
-<li>List item</li>
-<li>Another item</li>
-<li>And another item</li>
-</ul>
-<h4 id="nested-list">Nested list
-</h4><ul>
-<li>Fruit
-<ul>
-<li>Apple</li>
-<li>Orange</li>
-<li>Banana</li>
-</ul>
-</li>
-<li>Dairy
-<ul>
-<li>Milk</li>
-<li>Cheese</li>
-</ul>
-</li>
-</ul>
-<h2 id="other-elements--abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark
-</h2><p><abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.</p>
-<p>H<sub>2</sub>O</p>
-<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
-<p>Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.</p>
-<p>Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.</p>
-<h2 id="hyperlinked-image">Hyperlinked image
-</h2><p><a class="link" href="https://google.com"  target="_blank" rel="noopener"
-    ><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="Google"
-	
-	
-></a></p>
-<div class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1">
-<p>The above quote is excerpted from Rob Pike&rsquo;s <a class="link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c"  target="_blank" rel="noopener"
-    >talk</a> during Gopherfest, November 18, 2015.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</div>
+</div><p>积分分离也会导致启动时或是状态变化时PID上升时间边长，若要运用则应多次实验并谨慎来选择范围和系数。若阈值太大，达不到积分分离的目的，若太小又有可能因被控量无法跳出积分分离区，只进行PD控制，将会出现残差。</p>
+<h2 id="模糊pid">模糊PID
+</h2>
 </section>
 
 
@@ -745,7 +692,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.af58393aad70067c620224d4151ebdedfe8ba7a5f22cf6b1ae9b17704d12a0a9.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

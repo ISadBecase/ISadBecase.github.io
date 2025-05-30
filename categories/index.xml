@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on An</title>
-        <link>https://example.com/categories/</link>
+        <link>http://localhost:1313/categories/</link>
         <description>Recent content in Categories on An</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>An</copyright>
-        <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Else</title>
+        <link>http://localhost:1313/categories/else/</link>
+        <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/else/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Code</title>
-        <link>https://example.com/categories/code/</link>
+        <link>http://localhost:1313/categories/code/</link>
         <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/categories/code/</guid>
+        <guid>http://localhost:1313/categories/code/</guid>
         <description></description>
         </item>
         <item>
         <title>PID</title>
-        <link>https://example.com/categories/pid/</link>
+        <link>http://localhost:1313/categories/pid/</link>
         <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/categories/pid/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Wait</title>
-        <link>https://example.com/categories/wait/</link>
-        <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/categories/wait/</guid>
+        <guid>http://localhost:1313/categories/pid/</guid>
         <description></description>
         </item>
         <item>
         <title>Test</title>
-        <link>https://example.com/categories/test/</link>
+        <link>http://localhost:1313/categories/test/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/categories/test/</guid>
-        <description>&lt;img src="https://example.com/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        <guid>http://localhost:1313/categories/test/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
         </item>
         
     </channel>

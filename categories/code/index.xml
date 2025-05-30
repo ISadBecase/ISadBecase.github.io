@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Code on An</title>
-        <link>https://example.com/categories/code/</link>
+        <link>http://localhost:1313/categories/code/</link>
         <description>Recent content in Code on An</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>An</copyright>
-        <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/code/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/code/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>PID</title>
-        <link>https://example.com/p/pid/</link>
+        <link>http://localhost:1313/p/pid/</link>
         <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://example.com/p/pid/</guid>
-        <description>&lt;img src="https://example.com/p/pid/shneli.jpg" alt="Featured image of post PID" /&gt;&lt;h2 id=&#34;经典pid&#34;&gt;经典PID：
+        <guid>http://localhost:1313/p/pid/</guid>
+        <description>&lt;img src="http://localhost:1313/p/pid/shneli.jpg" alt="Featured image of post PID" /&gt;&lt;h2 id=&#34;经典pid&#34;&gt;经典PID：
 &lt;/h2&gt;&lt;p&gt;比例、积分、微分控制，简称PID控制，又称PID调节。PID控制的基本方法是根据系统输入与预定输出的偏差的大小运用比例、积分、微分计算出一个控制量，将这个控制量输入系统，获得输出量，通过反馈回路再次检测该输出量的偏差，循环上述过程，以使输出达到预定值。使用情况：当被控对象的结构和参数不能完全掌握，或得不到精确的数学模型时&lt;/p&gt;
 &lt;h3 id=&#34;连续型pid&#34;&gt;连续型PID
 &lt;/h3&gt;$$

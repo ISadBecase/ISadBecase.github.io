@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Else on An</title>
+        <link>http://localhost:1313/tags/else/</link>
+        <description>Recent content in Else on An</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>An</copyright>
+        <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/else/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>杂记</title>
+        <link>http://localhost:1313/p/%E6%9D%82%E8%AE%B0/</link>
+        <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/%E6%9D%82%E8%AE%B0/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E6%9D%82%E8%AE%B0/hello.png" alt="Featured image of post 杂记" /&gt;&lt;h3 id=&#34;-本文无借鉴意义仅备忘录&#34;&gt;⚠️ 本文无借鉴意义，仅备忘录
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;5/31: Ubuntu中Clash verge没有流量通行问题？&lt;/strong&gt;&lt;br&gt;
+使用TUN模式&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;5/31: 智能车Left_New_num动态计算后没有计算正确，而判断到边界？&lt;/strong&gt;&lt;br&gt;
+Left_New_num被定义为uint，与负数的斜率相计算导致越界。Left_New_num应为int&lt;/p&gt;&lt;/blockquote&gt;
+
+</description>
+        </item>
+        
+    </channel>
+</rss>

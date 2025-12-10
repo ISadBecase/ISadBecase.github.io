@@ -1,0 +1,4 @@
+./idea
+./mydjango/settings.py
+*.sqlite3
+static/*
